@@ -37,4 +37,10 @@ public class StartApplication {
         System.out.println("haha");
         return "haha";
     }
+
+    @GetMapping("/test")
+    public String test() {
+        System.out.println("test");
+        return "test";
+    }
 }
