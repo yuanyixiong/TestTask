@@ -20,27 +20,9 @@ public class StartApplication {
         SpringApplication.run(StartApplication.class, args);
     }
 
-    @GetMapping("/hello")
+    @GetMapping("/demo")
     public String hello() {
-        System.out.println("hello");
-        return "hello";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        System.out.println("login");
-        return "login";
-    }
-
-    @GetMapping("/haha")
-    public String haha() {
-        System.out.println("haha");
-        return "haha";
-    }
-
-    @GetMapping("/test")
-    public String test() {
-        System.out.println("test");
-        return "test";
+        System.out.println("demo");
+        return "demo";
     }
 }
