@@ -21,7 +21,7 @@ public class StartApplication {
     }
 
     @GetMapping("/test")
-    public String hello() {
+    public String test() {
         System.out.println("test");
         return "测试Jenkins持续性交付";
     }
