@@ -25,4 +25,10 @@ public class StartApplication {
         System.out.println("hello");
         return "hello";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        System.out.println("login");
+        return "login";
+    }
 }
