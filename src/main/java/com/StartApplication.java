@@ -31,4 +31,10 @@ public class StartApplication {
         System.out.println("login");
         return "login";
     }
+
+    @GetMapping("/haha")
+    public String haha() {
+        System.out.println("haha");
+        return "haha";
+    }
 }
