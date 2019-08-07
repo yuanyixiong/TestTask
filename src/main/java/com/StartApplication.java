@@ -20,9 +20,9 @@ public class StartApplication {
         SpringApplication.run(StartApplication.class, args);
     }
 
-    @GetMapping("/demo")
+    @GetMapping("/test")
     public String hello() {
-        System.out.println("demo");
-        return "demo";
+        System.out.println("test");
+        return "测试Jenkins持续性交付";
     }
 }
