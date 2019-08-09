@@ -30,13 +30,16 @@ cp /root/.jenkins/workspace/$service_name/target/$copy_jar $service/$service_nam
 
 java -jar $service/$service_name/$copy_jar --server.port=8888 >> $service/$service_name/$service_name.log & echo $! > $service/$service_name/$service_name.pid
 
+echo "=================unzip flume config================="
+unzip -j $service/$service_name/$copy_jar "*/flume.*" -d $service/$service_name/flume
+
 echo "=================kill flume service================="
-echo "1" >> $service/flume.pid
-kill -9 `cat $service/flume.pid`
+echo "1" >> $service/$service_name/flume/flume.pid
+kill -9 `cat $service/$service_name/flume/flume.pid`
 sleep 5s
-rm -rf $service/flume.pid
-rm -rf $service/flume.log
+rm -rf $service/$service_name/flume/flume.pid
+rm -rf $service/$service_name/flume/flume.log
 sleep 1s
 
 echo "=================start flume service================="
-$flume_root/bin/flume-ng agent -n a1 -c conf -f $config/flume/flume_for_log_to_kafka.conf -Dflume.root.logger=INFO,console > $service/flume.log & echo $! > $service/flume.pid &
+$flume_root/bin/flume-ng agent -n a1 -c conf -f $service/$service_name/flume/flume.conf -Dflume.root.logger=INFO,console > $service/$service_name/flume/flume.log & echo $! > $service/$service_name/flume/flume.pid &
