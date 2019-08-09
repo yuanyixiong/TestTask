@@ -28,7 +28,7 @@ echo "=================start application service================="
 mkdir -p $service/$service_name
 cp /root/.jenkins/workspace/$service_name/target/$copy_jar $service/$service_name
 
-java -jar $service/$service_name/$copy_jar --server.port=8888 >> $service/$service_name/$service_name.log & echo $! > $service/$service_name/$service_name.pid
+java -jar -Xmx128m -Xms64m -Xmn32m -Xss16m $service/$service_name/$copy_jar --server.port=8888 >> $service/$service_name/$service_name.log & echo $! > $service/$service_name/$service_name.pid
 
 echo "=================unzip flume config================="
 unzip -j $service/$service_name/$copy_jar "*/flume.*" -d $service/$service_name/flume
